@@ -5,8 +5,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/pumba-dev/ponto-sistemas-teste?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/github/issues-pr/pumba-dev/ponto-sistemas-teste?style=for-the-badge)
 
-<center> <h2>☕ Em Desenvolvimento</h2> </center>
-
+<h2 align="center" >☕ Em Desenvolvimento</h2>
 <!-- <img src="./assets/prototype.png" alt="Imagem do Protótipo no Figma"/> -->
 
 > https://ponto-sistemas-teste.herokuapp.com/ - Página Web Vue 3 Desenvolvida como Teste Front-End.
@@ -17,7 +16,7 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
-- [x] Configurar Ambiente de Desenvolvimento.
+- [ ] Configurar Ambiente de Desenvolvimento.
 - [ ] Levantar Requisitos e Assets do Projeto.
 
 
@@ -45,9 +44,11 @@ npm run dev
 
 ## 💻 Feito Com:
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-E34F26?style=for-the-badge&logo=linux&logoColor=black)
+![Firebase](https://img.shields.io/badge/Firebase-F29D0C?style=for-the-badge&logo=firebase&logoColor=white)
+![Vue](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 
 ## 🤝 Desenvolvido Por
 
