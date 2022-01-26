@@ -20,7 +20,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Levantar Requisitos e Assets do Projeto.
 - [x] Configurar SemanticUI
 - [x] Configurar Rotas.
-- [ ] Criar API com Firebase.
+- [x] Criar API com Firebase.
 - [ ] Criar Página de Cadastro.
 - [ ] Criar Página de Listagem.
 
