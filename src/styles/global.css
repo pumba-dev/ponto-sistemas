@@ -1,0 +1,12 @@
+:root {
+    --primary-color: #007cba;
+    --primary-color-dark: #006ba1;
+    --primary-color-shadow: #005a87;
+    --primary-color-light: #4dc6ff;
+    --secondary-color: #faa41a;
+    --gray-color: rgba(225,228,230,0.81);
+}
+
+#app {
+    font-family: "Lato";
+}
