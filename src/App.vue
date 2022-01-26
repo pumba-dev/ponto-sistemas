@@ -1,12 +1,14 @@
 <template>
-  <Header> </Header>
+  <main>
+    <Header> </Header>
+    <router-view></router-view>
+  </main>
 </template>
 
 <script>
 // CSS
 import "./styles/reset.css";
 import "./styles/global.css";
-
 // Components
 import Header from "./components/Header.vue";
 
