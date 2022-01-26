@@ -17,8 +17,11 @@
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
 - [x] Configurar Ambiente de Desenvolvimento.
-- [ ] Levantar Requisitos e Assets do Projeto.
-
+- [x] Levantar Requisitos e Assets do Projeto.
+- [ ] Configurar Rotas.
+- [ ] Criar API com Firebase.
+- [ ] Criar Página de Cadastro.
+- [ ] Criar Página de Listagem.
 
 ## 📝 Pré-requisitos
 
