@@ -1,7 +1,11 @@
 <template>
-  <div class="img-container">
+  <a
+    class="img-container"
+    href="https://www.pontosistemas.com.br/"
+    target="_blank"
+  >
     <img class="img" src="../assets/logo.png" alt="Logo da Ponto Sistemas." />
-  </div>
+  </a>
 </template>
 
 <script>
