@@ -1,11 +1,14 @@
 <template>
-  <a
-    class="github-link"
+  <button
+    class="ui animated button primary"
     href="https://github.com/pumba-dev/ponto-sistemas-teste"
     target="_blank"
   >
-    GitHub
-  </a>
+    <div class="visible content">GitHub</div>
+    <div class="hidden content">
+      <i aria-hidden="true" class="github icon"></i>
+    </div>
+  </button>
 </template>
 
 <script>

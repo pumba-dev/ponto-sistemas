@@ -18,6 +18,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [x] Configurar Ambiente de Desenvolvimento.
 - [x] Levantar Requisitos e Assets do Projeto.
+- [x] Configurar SemanticUI
 - [ ] Configurar Rotas.
 - [ ] Criar API com Firebase.
 - [ ] Criar Página de Cadastro.
