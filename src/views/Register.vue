@@ -139,9 +139,9 @@ export default {
       };
     },
 
-    async pushUserOnDatabase(userData) {
+    async pushUserOnDatabase(user) {
       try {
-        const docRef = await setDoc(doc(db, "users", userData.cpf), userData);
+        const docRef = await setDoc(doc(db, "users", user.cpf), user);
       } catch (e) {
         console.error("Error adding new user: ", e);
       }
