@@ -25,9 +25,11 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Criar Cabeçalho da Página.
 - [x] Criar Tela de Cadastro.
 - [x] Criar Tela de Listagem.
-- [ ] Criar Botão e Tela de Atualizar Usuário.
+- [x] Criar Botão e Tela de Atualizar Usuário.
 - [x] Criar Botão de Apagar Usuário.
 - [ ] Criar Rodapé da Página.
+- [ ] Confirmação para Apagar Usuário.
+- [ ] Responsividade.
 
 ## 📝 Pré-requisitos
 
