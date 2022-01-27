@@ -2,45 +2,49 @@
   <div class="register-view">
     <h1 class="register-title">Cadastro de Novas Pessoas</h1>
 
-    <Alert v-show="alert.show" :Alert="alert"></Alert>
-
-    <form
-      class="register-form"
-      :class="['ui', alert.type, 'form']"
-      @submit.prevent="submitUser"
-    >
-      <div class="field" :class="{ error: inputErr.name }">
-        <label>Nome</label>
-        <input
-          placeholder="Insira seu nome"
-          type="text"
-          maxlength="20"
-          v-model="user.name"
-        />
+    <div class="register-container">
+      <div>
+        <Alert v-show="alert.show" :Alert="alert"></Alert>
       </div>
 
-      <div class="field" :class="{ error: inputErr.cpf }">
-        <label>CPF</label>
-        <input
-          placeholder="Insira seu CPF"
-          type="text"
-          v-model="user.cpf"
-          v-mask="'###.###.###-##'"
-        />
-      </div>
+      <form
+        class="register-form"
+        :class="['ui', alert.type, 'form']"
+        @submit.prevent="submitUser"
+      >
+        <div class="field" :class="{ error: inputErr.name }">
+          <label>Nome</label>
+          <input
+            placeholder="Insira seu nome"
+            type="text"
+            maxlength="20"
+            v-model="user.name"
+          />
+        </div>
 
-      <div class="field" :class="{ error: inputErr.phone }">
-        <label>Telefone</label>
-        <input
-          placeholder="Insira seu Número"
-          type="text"
-          v-model="user.phone"
-          v-mask="'(##) #####-####'"
-        />
-      </div>
+        <div class="field" :class="{ error: inputErr.cpf }">
+          <label>CPF</label>
+          <input
+            placeholder="Insira seu CPF"
+            type="text"
+            v-model="user.cpf"
+            v-mask="'###.###.###-##'"
+          />
+        </div>
 
-      <SubmitFormBtn type="submit" :disabled="btnDisabled"></SubmitFormBtn>
-    </form>
+        <div class="field" :class="{ error: inputErr.phone }">
+          <label>Telefone</label>
+          <input
+            placeholder="Insira seu Número"
+            type="text"
+            v-model="user.phone"
+            v-mask="'(##) #####-####'"
+          />
+        </div>
+
+        <SubmitFormBtn type="submit" :disabled="btnDisabled"></SubmitFormBtn>
+      </form>
+    </div>
 
     <router-link :to="{ name: 'user-list' }"> Ir para Listagem </router-link>
   </div>
@@ -179,7 +183,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
+  gap: 3rem;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .register-title {
