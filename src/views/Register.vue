@@ -12,16 +12,6 @@
         :class="['ui', alert.type, 'form']"
         @submit.prevent="submitUser"
       >
-        <div class="field" :class="{ error: inputErr.name }">
-          <label>Nome</label>
-          <input
-            placeholder="Insira seu nome"
-            type="text"
-            maxlength="20"
-            v-model="user.name"
-          />
-        </div>
-
         <div class="field" :class="{ error: inputErr.cpf }">
           <label>CPF</label>
           <input
@@ -29,6 +19,16 @@
             type="text"
             v-model="user.cpf"
             v-mask="'###.###.###-##'"
+          />
+        </div>
+
+        <div class="field" :class="{ error: inputErr.name }">
+          <label>Nome</label>
+          <input
+            placeholder="Insira seu nome"
+            type="text"
+            maxlength="20"
+            v-model="user.name"
           />
         </div>
 
@@ -93,16 +93,11 @@ export default {
 
       if (this.userIsValid(user)) {
         if (!(await this.hasUser(user))) {
+          this.resetAlert();
           this.btnDisabled = true;
-          this.pushUserOnDatabase(user);
-          this.showAlert(
-            "success",
-            "Nova Pessoa Cadastrada!",
-            "Você será redirectionado para página de listagem"
-          );
-          setTimeout(() => {
+          this.pushUserOnDatabase(user).then(() => {
             this.$router.push({ name: "user-list" });
-          }, 4000);
+          });
         } else {
           this.showAlert(
             "error",
@@ -128,6 +123,20 @@ export default {
       const userSnap = await getDoc(userRef);
       const hasUser = typeof userSnap.data() != "undefined" ? true : false;
       return hasUser;
+    },
+
+    resetAlert() {
+      this.inputErr = {
+        name: false,
+        cpf: false,
+        phone: false,
+      };
+      this.alert = {
+        show: false,
+        type: "",
+        title: "",
+        message: "",
+      };
     },
 
     async pushUserOnDatabase(userData) {
