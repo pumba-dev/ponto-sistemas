@@ -1,7 +1,7 @@
 <template>
   <main class="app">
     <Header> </Header>
-    <router-view></router-view>
+    <router-view class="view"></router-view>
   </main>
 </template>
 
@@ -26,6 +26,11 @@ export default {
 
 <style>
 .app {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.view {
+  padding-top: 2rem;
 }
 </style>
