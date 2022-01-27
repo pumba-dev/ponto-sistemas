@@ -232,5 +232,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 13.25rem;
 }
 </style>
