@@ -42,15 +42,18 @@
           />
         </div>
 
-        <SubmitFormBtn
-          type="submit"
-          :disabled="btnDisabled"
-          :class="{ loading: btnDisabled }"
-        ></SubmitFormBtn>
+        <div class="options">
+          <BackButton
+            @click="this.$router.push({ name: 'user-list' })"
+          ></BackButton>
+          <SubmitFormBtn
+            type="submit"
+            :disabled="btnDisabled"
+            :class="{ loading: btnDisabled }"
+          ></SubmitFormBtn>
+        </div>
       </form>
     </div>
-
-    <router-link :to="{ name: 'user-list' }"> Ir para Listagem </router-link>
   </div>
 </template>
 
@@ -59,8 +62,10 @@ import db from "../services/Firestore.js";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import Alert from "../components/general/Alert.vue";
 import SubmitFormBtn from "../components/general/SubmitFormBtn.vue";
+import BackButton from "../components/register/BackButton.vue";
+
 export default {
-  components: { Alert, SubmitFormBtn },
+  components: { Alert, BackButton, SubmitFormBtn },
   setup() {
     return {
       name: "Register",
@@ -220,5 +225,12 @@ export default {
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 </style>
