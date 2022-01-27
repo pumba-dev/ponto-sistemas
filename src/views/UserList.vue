@@ -3,17 +3,22 @@
     <h1 class="user-list-title">Lista de Pessoas Cadastradas</h1>
     <UserTable
       :users="userList"
-      @delete="deleteUser"
+      @delete="setupToDelete"
       @edit="editUser"
     ></UserTable>
     <router-link :to="{ name: 'register' }"> Ir para Registro </router-link>
 
     <Update
       :userID="userID"
-      :showContainer="showContainer"
-      @hideContainer="showContainer = false"
+      :showUpdate="showUpdate"
+      @hideUpdate="showUpdate = false"
       @userUpdated="this.$router.go(0)"
     ></Update>
+    <DeleteConfirm
+      :showDeleteConfirm="showDeleteConfirm"
+      @hideDelete="showDeleteConfirm = false"
+      @delete="deleteUser"
+    ></DeleteConfirm>
   </div>
 </template>
 
@@ -21,11 +26,12 @@
 import { reactive, onBeforeMount } from "vue";
 import db from "../services/Firestore.js";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
-import UserTable from "../components/UserTable.vue";
-import Update from "./Update.vue";
+import UserTable from "../components/user-list/UserTable.vue";
+import Update from "../components/user-list/Update.vue";
+import DeleteConfirm from "../components/user-list/DeleteConfirm.vue";
 
 export default {
-  components: { UserTable, Update },
+  components: { UserTable, Update, DeleteConfirm },
   setup() {
     async function getUsers() {
       let userList = [];
@@ -52,18 +58,24 @@ export default {
   data() {
     return {
       userID: "",
-      showContainer: false,
+      showUpdate: false,
+      showDeleteConfirm: false,
     };
   },
   methods: {
-    async deleteUser(user) {
-      await deleteDoc(doc(db, "users", user.cpf));
+    setupToDelete(user) {
+      this.userID = user.cpf;
+      this.showDeleteConfirm = true;
+    },
+
+    async deleteUser() {
+      await deleteDoc(doc(db, "users", this.userID));
       this.$router.go(0);
     },
 
     editUser(user) {
       this.userID = user.cpf;
-      this.showContainer = true;
+      this.showUpdate = true;
     },
   },
 };

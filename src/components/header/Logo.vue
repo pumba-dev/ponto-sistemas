@@ -4,7 +4,11 @@
     href="https://www.pontosistemas.com.br/"
     target="_blank"
   >
-    <img class="img" src="../assets/logo.png" alt="Logo da Ponto Sistemas." />
+    <img
+      class="img"
+      src="../../assets/logo.png"
+      alt="Logo da Ponto Sistemas."
+    />
   </a>
 </template>
 

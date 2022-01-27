@@ -27,8 +27,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Criar Tela de Listagem.
 - [x] Criar Botão e Tela de Atualizar Usuário.
 - [x] Criar Botão de Apagar Usuário.
+- [x] Confirmação para Apagar Usuário.
 - [ ] Criar Rodapé da Página.
-- [ ] Confirmação para Apagar Usuário.
+- [ ] Adicionar Scroll na Lista de Usuários.
 - [ ] Responsividade.
 
 ## 📝 Pré-requisitos

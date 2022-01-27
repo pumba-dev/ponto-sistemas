@@ -3,13 +3,13 @@
     <transition name="fade" appear>
       <div
         class="edit-background"
-        v-if="showContainer"
+        v-if="showUpdate"
         @click="sendHideEvent"
       ></div>
     </transition>
 
     <transition name="slide" appear>
-      <div class="form-container" v-if="showContainer">
+      <div class="form-container" v-if="showUpdate">
         <h1 class="edit-title">Alterar Dados da Pessoa</h1>
 
         <div>
@@ -65,10 +65,10 @@
 
 <script>
 import { onBeforeUpdate, ref } from "vue";
-import db from "../services/Firestore.js";
+import db from "../../services/Firestore.js";
 import { doc, getDoc, updateDoc } from "@firebase/firestore";
-import Alert from "../components/Alert.vue";
-import SubmitFormBtn from "../components/SubmitFormBtn.vue";
+import Alert from "../general/Alert.vue";
+import SubmitFormBtn from "../general/SubmitFormBtn.vue";
 export default {
   components: { Alert, SubmitFormBtn },
   props: {
@@ -76,7 +76,7 @@ export default {
       typeof: Object,
       required: true,
     },
-    showContainer: {
+    showUpdate: {
       typeof: Boolean,
       required: true,
     },
@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     sendHideEvent() {
-      this.$emit("hideContainer");
+      this.$emit("hideUpdate");
     },
 
     submitUpdate() {

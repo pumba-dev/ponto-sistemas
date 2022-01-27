@@ -10,7 +10,7 @@
 import "./styles/reset.css";
 import "./styles/global.css";
 // Components
-import Header from "./components/Header.vue";
+import Header from "./components/header/Header.vue";
 
 export default {
   components: {

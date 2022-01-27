@@ -57,8 +57,8 @@
 <script>
 import db from "../services/Firestore.js";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import Alert from "../components/Alert.vue";
-import SubmitFormBtn from "../components/SubmitFormBtn.vue";
+import Alert from "../components/general/Alert.vue";
+import SubmitFormBtn from "../components/general/SubmitFormBtn.vue";
 export default {
   components: { Alert, SubmitFormBtn },
   setup() {
