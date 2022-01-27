@@ -39,7 +39,7 @@
         />
       </div>
 
-      <SubmitFormBtn type="submit"></SubmitFormBtn>
+      <SubmitFormBtn type="submit" :disabled="btnDisabled"></SubmitFormBtn>
     </form>
 
     <router-link :to="{ name: 'user-list' }"> Ir para Listagem </router-link>
@@ -48,7 +48,7 @@
 
 <script>
 import db from "../services/Firestore.js";
-import { collection, addDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import Alert from "../components/Alert.vue";
 import SubmitFormBtn from "../components/SubmitFormBtn.vue";
 export default {
@@ -76,30 +76,38 @@ export default {
         title: "",
         message: "",
       },
+      btnDisabled: false,
     };
   },
   methods: {
-    submitUser() {
+    async submitUser() {
       const user = this.user;
 
-      if (this.userIsValid()) {
-        this.pushUserOnDatabase(user);
-        this.resetAlerts();
-        this.showAlert(
-          "success",
-          "Nova Pessoa Cadastrada!",
-          "Você será redirectionado para página de listagem"
-        );
-        setTimeout(() => {
-          this.$router.push({ name: "user-list" });
-        }, 4000);
+      if (this.userIsValid(user)) {
+        if (!(await this.hasUser(user))) {
+          this.btnDisabled = true;
+          this.pushUserOnDatabase(user);
+          this.showAlert(
+            "success",
+            "Nova Pessoa Cadastrada!",
+            "Você será redirectionado para página de listagem"
+          );
+          setTimeout(() => {
+            this.$router.push({ name: "user-list" });
+          }, 4000);
+        } else {
+          this.showAlert(
+            "error",
+            "Pessoa Já Cadastrada!",
+            "CPF já cadastrado, informe uma nova pessoa."
+          );
+        }
       } else {
         this.verifyInputErr();
       }
     },
 
-    userIsValid() {
-      const user = this.user;
+    userIsValid(user) {
       return (
         user.name.length >= 5 &&
         user.cpf.length == 14 &&
@@ -107,27 +115,19 @@ export default {
       );
     },
 
+    async hasUser(user) {
+      const userRef = doc(db, "users", user.cpf);
+      const userSnap = await getDoc(userRef);
+      const hasUser = typeof userSnap.data() != "undefined" ? true : false;
+      return hasUser;
+    },
+
     async pushUserOnDatabase(userData) {
       try {
-        const docRef = await addDoc(collection(db, "users"), userData);
+        const docRef = await setDoc(doc(db, "users", userData.cpf), userData);
       } catch (e) {
         console.error("Error adding new user: ", e);
       }
-    },
-
-    resetAlerts() {
-      this.alert = {
-        show: false,
-        type: "",
-        title: "",
-        message: "",
-      };
-
-      this.inputErr = {
-        name: false,
-        cpf: false,
-        phone: false,
-      };
     },
 
     showAlert(type, title, message) {
@@ -135,12 +135,6 @@ export default {
       this.alert.title = title;
       this.alert.message = message;
       this.alert.show = true;
-
-      if (this.alert.type == "success") {
-        setTimeout(() => {
-          this.alert.show = false;
-        }, 4000);
-      }
     },
 
     verifyInputErr() {
@@ -185,8 +179,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 40rem;
-  justify-content: space-around;
+  gap: 5rem;
 }
 
 .register-title {
