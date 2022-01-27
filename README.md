@@ -19,16 +19,18 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [x] Configurar Ambiente de Desenvolvimento.
 - [x] Levantar Requisitos e Assets do Projeto.
-- [x] Configurar SemanticUI
+- [x] Configurar SemanticUI.
 - [x] Configurar Rotas.
-- [x] Criar API com Firebase.
-- [x] Criar Cabeçalho da Página.
-- [x] Criar Tela de Cadastro.
-- [x] Criar Tela de Listagem.
-- [x] Criar Botão e Tela de Atualizar Usuário.
-- [x] Criar Botão de Apagar Usuário.
+- [x] API com Firebase.
+- [x] Cabeçalho da Página.
+- [x] Tela de Cadastro.
+- [x] Tela de Listagem.
+- [x] Tela de Atualizar Usuário.
+- [x] Botão de Editar Usuário.
+- [x] PopUP de Edição de Usuário.
+- [x] Botão de Apagar Usuário.
 - [x] Confirmação para Apagar Usuário.
-- [ ] Criar Rodapé da Página.
+- [ ] Rodapé da Página.
 - [ ] Adicionar Scroll na Lista de Usuários.
 - [ ] Responsividade.
 
@@ -40,6 +42,7 @@ Requisitos definidos pela empresa:
 - Página de Cadastro de Novas Pessoas (*/nova-pessoa*)
 - Página de Listagem, Edição e Exclusão de Pessoas Cadastradas (*/lista-pessoas*).
 - No Formulário de Inclusão o Botão **Salvar** deve Incluir e Redirecionar para Página de Listagem.
+- No Formulário de Inclusão deve ter um botão **Voltar** Que Redireciona para a Página de Listagem.
 - No Formulário de Listagem, Deve haver um Botão **Incluir** que Redireciona para a Página de Cadastro.
 - Utilizar Biblioteca de Componentes SemanticUI
     - https://react.semantic-ui.com;
