@@ -1,12 +1,14 @@
 <template>
   <div class="user-list-view">
     <h1 class="user-list-title">Lista de Pessoas Cadastradas</h1>
+
     <UserTable
       :users="userList"
       @delete="setupToDelete"
       @edit="editUser"
     ></UserTable>
-    <router-link :to="{ name: 'register' }"> Ir para Registro </router-link>
+
+    <NewUserBtn @click="this.$router.push({ name: 'register' })"></NewUserBtn>
 
     <Update
       :userID="userID"
@@ -29,9 +31,10 @@ import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import UserTable from "../components/user-list/UserTable.vue";
 import Update from "../components/user-list/Update.vue";
 import DeleteConfirm from "../components/user-list/DeleteConfirm.vue";
+import NewUserBtn from "../components/user-list/NewUserBtn.vue";
 
 export default {
-  components: { UserTable, Update, DeleteConfirm },
+  components: { UserTable, Update, DeleteConfirm, NewUserBtn },
   setup() {
     async function getUsers() {
       let userList = [];
