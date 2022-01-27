@@ -21,8 +21,12 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Configurar SemanticUI
 - [x] Configurar Rotas.
 - [x] Criar API com Firebase.
-- [x] Criar Página de Cadastro.
-- [ ] Criar Página de Listagem.
+- [x] Criar Cabeçalho da Página.
+- [x] Criar Tela de Cadastro.
+- [x] Criar Tela de Listagem.
+- [ ] Criar Botão e Tela de Atualizar Usuário.
+- [x] Criar Botão de Apagar Usuário.
+- [ ] Criar Rodapé da Página.
 
 ## 📝 Pré-requisitos
 
