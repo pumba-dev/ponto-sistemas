@@ -11,10 +11,10 @@
       <div class="delete-container" v-if="showDeleteConfirm">
         <h3 class="ui header">Deseja Apagar Esta Pessoa?</h3>
         <div class="delete-options">
-          <button class="ui secondary button" @click="this.$emit('delete')">
+          <button class="ui primary button" @click="this.$emit('delete')">
             Apagar
           </button>
-          <button class="ui primary button" @click="this.$emit('hideDelete')">
+          <button class="ui button" @click="this.$emit('hideDelete')">
             Cancelar
           </button>
         </div>
@@ -63,6 +63,10 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+
+.header {
+  color: var(--primary-color);
 }
 
 .delete-options {
