@@ -7,6 +7,13 @@
       @edit="editUser"
     ></UserTable>
     <router-link :to="{ name: 'register' }"> Ir para Registro </router-link>
+
+    <Update
+      :userID="userID"
+      :showContainer="showContainer"
+      @hideContainer="showContainer = false"
+      @userUpdated="this.$router.go(0)"
+    ></Update>
   </div>
 </template>
 
@@ -15,9 +22,10 @@ import { reactive, onBeforeMount } from "vue";
 import db from "../services/Firestore.js";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import UserTable from "../components/UserTable.vue";
+import Update from "./Update.vue";
 
 export default {
-  components: { UserTable },
+  components: { UserTable, Update },
   setup() {
     async function getUsers() {
       let userList = [];
@@ -41,13 +49,22 @@ export default {
       userList,
     };
   },
+  data() {
+    return {
+      userID: "",
+      showContainer: false,
+    };
+  },
   methods: {
     async deleteUser(user) {
       await deleteDoc(doc(db, "users", user.cpf));
       this.$router.go(0);
     },
 
-    editUser() {},
+    editUser(user) {
+      this.userID = user.cpf;
+      this.showContainer = true;
+    },
   },
 };
 </script>
@@ -57,8 +74,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
-  justify-content: space-around;
+  gap: 3rem;
 }
 
 .user-list-title {
