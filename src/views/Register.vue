@@ -42,7 +42,11 @@
           />
         </div>
 
-        <SubmitFormBtn type="submit" :disabled="btnDisabled"></SubmitFormBtn>
+        <SubmitFormBtn
+          type="submit"
+          :disabled="btnDisabled"
+          :class="{ loading: btnDisabled }"
+        ></SubmitFormBtn>
       </form>
     </div>
 
