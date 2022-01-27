@@ -11,12 +11,8 @@
       <div class="delete-container" v-if="showDeleteConfirm">
         <h3 class="ui header">Deseja Apagar Esta Pessoa?</h3>
         <div class="delete-options">
-          <button class="ui button" @click="this.$emit('hideDelete')">
-            Cancelar
-          </button>
-          <button class="ui primary button" @click="this.$emit('delete')">
-            Apagar
-          </button>
+          <CancelBtn @click="this.$emit('hideDelete')"></CancelBtn>
+          <DeleteBtn @click="this.$emit('delete')"></DeleteBtn>
         </div>
       </div>
     </transition>
@@ -24,7 +20,11 @@
 </template>
 
 <script>
+import CancelBtn from "../general/CancelBtn.vue";
+import DeleteBtn from "./DeleteBtn.vue";
+
 export default {
+  components: { CancelBtn, DeleteBtn },
   props: {
     showDeleteConfirm: {
       typeof: Boolean,

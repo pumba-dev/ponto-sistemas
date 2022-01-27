@@ -34,10 +34,10 @@ export default {
 }
 
 .edit:hover {
-  background-color: rgba(255, 255, 0, 0.5) !important;
+  background-color: var(--primary-color-light) !important;
 }
 
 .delete:hover {
-  background-color: rgba(255, 0, 0, 0.5) !important;
+  background-color: var(--primary-color) !important;
 }
 </style>

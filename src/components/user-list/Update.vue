@@ -52,11 +52,14 @@
             />
           </div>
 
-          <SubmitFormBtn
-            type="submit"
-            :disabled="btnDisabled"
-            :class="{ loading: btnDisabled }"
-          ></SubmitFormBtn>
+          <div class="options">
+            <CancelBtn @click="sendHideEvent"></CancelBtn>
+            <SubmitFormBtn
+              type="submit"
+              :disabled="btnDisabled"
+              :class="{ loading: btnDisabled }"
+            ></SubmitFormBtn>
+          </div>
         </form>
       </div>
     </transition>
@@ -69,8 +72,10 @@ import db from "../../services/Firestore.js";
 import { doc, getDoc, updateDoc } from "@firebase/firestore";
 import Alert from "../general/Alert.vue";
 import SubmitFormBtn from "../general/SubmitFormBtn.vue";
+import CancelBtn from "../general/CancelBtn.vue";
+
 export default {
-  components: { Alert, SubmitFormBtn },
+  components: { Alert, SubmitFormBtn, CancelBtn },
   props: {
     userID: {
       typeof: Object,
