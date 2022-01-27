@@ -6,7 +6,7 @@
 ![Bitbucket open pull requests](https://img.shields.io/github/issues-pr/pumba-dev/ponto-sistemas-teste?style=for-the-badge)
 
 <h2 align="center" >☕ Em Desenvolvimento</h2>
-<!-- <img src="./assets/prototype.png" alt="Imagem do Protótipo no Figma"/> -->
+<img src="./public/home-page.png" alt="Imagem da Home do Site."/>
 
 > https://ponto-sistemas-teste.herokuapp.com/ - Página Web Vue 3 Desenvolvida como Teste Front-End.
 
@@ -21,7 +21,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Configurar SemanticUI
 - [x] Configurar Rotas.
 - [x] Criar API com Firebase.
-- [ ] Criar Página de Cadastro.
+- [x] Criar Página de Cadastro.
 - [ ] Criar Página de Listagem.
 
 ## 📝 Pré-requisitos

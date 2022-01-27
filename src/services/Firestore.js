@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, addDoc } from "firebase/firestore";
 
 // Initialize Cloud Firestore through Firebase
 const firebaseConfig = {

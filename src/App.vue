@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="app">
     <Header> </Header>
     <router-view></router-view>
   </main>
@@ -25,4 +25,7 @@ export default {
 </script>
 
 <style>
+.app {
+  height: 100vh;
+}
 </style>

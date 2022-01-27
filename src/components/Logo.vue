@@ -12,7 +12,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .img-container {
   width: 6rem;
 }
