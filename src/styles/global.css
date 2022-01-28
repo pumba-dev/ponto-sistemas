@@ -4,10 +4,10 @@
     --primary-color-shadow: #005a87;
     --primary-color-light: #4dc6ff;
     --secondary-color: #faa41a;
-    --gray-color: rgba(225,228,230,0.81);
+    --gray: #f7f7f7;
 }
 
 #app {
     font-family: "Lato";
-    background-color: #f7f7f7;
+    background-color: var(--gray);
 }

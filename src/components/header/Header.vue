@@ -18,17 +18,20 @@ export default {
 
 <style scoped>
 .header {
+  width: 80%;
+  height: min-content;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0rem;
-  width: 80%;
-  margin: auto;
+
+  padding-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 1024px) {
   .header {
-    padding: 2rem 0rem;
     width: 70%;
   }
 }
