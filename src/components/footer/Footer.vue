@@ -9,12 +9,10 @@
 <script>
 import PumbaLogo from "./PumbaLogo.vue";
 import Copyright from "./Copyright.vue";
-import MadeWith from "./MadeWith.vue";
 export default {
   components: {
     PumbaLogo,
     Copyright,
-    MadeWith,
   },
 };
 </script>
@@ -26,10 +24,10 @@ export default {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 1.25rem;
-  padding: 2rem 0rem;
+
   background-color: var(--primary-color);
+  gap: 1rem;
+  padding: 1rem 0rem;
 }
 </style>
