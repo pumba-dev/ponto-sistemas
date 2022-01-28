@@ -1,10 +1,12 @@
-# ![🚀 Ponto Sistemas - Front End Test](https://ponto-sistemas-teste.herokuapp.com/)
+# [🚀 Ponto Sistemas - Front End Test](https://ponto-sistemas-teste.herokuapp.com/)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/pumba-dev/ponto-sistemas-teste?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/pumba-dev/ponto-sistemas-teste?style=for-the-badge)
 ![GitHub stars](https://img.shields.io/github/stars/pumba-dev/ponto-sistemas-teste?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/pumba-dev/ponto-sistemas-teste?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/github/issues-pr/pumba-dev/ponto-sistemas-teste?style=for-the-badge)
+
+<h2 align="center">☕ Projeto Concluído</h2>
 
 <img src="./public/home-page.png" alt="Imagem da Home do Site."/>
 
@@ -14,7 +16,7 @@
 
 ### Ajustes e melhorias
 
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
+Todo bom projeto está em constante desenvolvimento, então as próximas atualizações serão voltadas nas seguintes tarefas:
 
 - [x] Configurar Ambiente de Desenvolvimento.
 - [x] Levantar Requisitos e Assets do Projeto.
