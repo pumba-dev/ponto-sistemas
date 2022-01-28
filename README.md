@@ -31,7 +31,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Botão de Apagar Usuário.
 - [x] Confirmação para Apagar Usuário.
 - [x] Rodapé da Página.
-- [ ] Responsividade.
+- [x] Responsividade.
 
 ## 📝 Pré-requisitos
 
