@@ -29,11 +29,12 @@ export default {
 
 <style>
 .app {
-  height: 100vh;
+  min-height: 100vh;
+  height: max-content;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 </style>
