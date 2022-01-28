@@ -1,6 +1,6 @@
 <template>
   <div class="user-list-view">
-    <h1 class="user-list-title">Lista de Pessoas Cadastradas</h1>
+    <ViewTitle title="Lista de Pessoas Cadastradas"></ViewTitle>
 
     <UserTable
       :users="userList"
@@ -32,9 +32,10 @@ import UserTable from "../components/user-list/UserTable.vue";
 import Update from "../components/user-list/Update.vue";
 import DeleteConfirm from "../components/user-list/DeleteConfirm.vue";
 import NewUserBtn from "../components/user-list/NewUserBtn.vue";
+import ViewTitle from "../components/general/ViewTitle.vue";
 
 export default {
-  components: { UserTable, Update, DeleteConfirm, NewUserBtn },
+  components: { UserTable, Update, DeleteConfirm, NewUserBtn, ViewTitle },
   setup() {
     async function getUsers() {
       let userList = [];

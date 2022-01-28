@@ -1,6 +1,6 @@
 <template>
   <div class="register-view">
-    <h1 class="register-title">Cadastro de Novas Pessoas</h1>
+    <ViewTitle title="Cadastro de Novas Pessoas"></ViewTitle>
 
     <div class="register-container">
       <div>
@@ -63,9 +63,10 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import Alert from "../components/general/Alert.vue";
 import SubmitFormBtn from "../components/general/SubmitFormBtn.vue";
 import BackButton from "../components/register/BackButton.vue";
+import ViewTitle from "../components/general/ViewTitle.vue";
 
 export default {
-  components: { Alert, BackButton, SubmitFormBtn },
+  components: { Alert, BackButton, SubmitFormBtn, ViewTitle },
   setup() {
     return {
       name: "Register",
@@ -209,12 +210,6 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-}
-
-.register-title {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: var(--primary-color);
 }
 
 .register-form {
