@@ -8,12 +8,10 @@
     </transition>
 
     <transition name="slide" appear>
-      <div class="form-container" v-if="showUpdate">
-        <h1 class="edit-title">Alterar Dados da Pessoa</h1>
+      <PopupContainer class="form-container" v-if="showUpdate">
+        <PopupTitle text="Alterar Dados da Pessoa"></PopupTitle>
 
-        <div class="just-to-align">
-          <Alert v-show="alert.show" :Alert="alert"></Alert>
-        </div>
+        <Alert v-show="alert.show" :Alert="alert"></Alert>
 
         <form
           class="edit-form"
@@ -60,7 +58,7 @@
             ></SaveBtn>
           </div>
         </form>
-      </div>
+      </PopupContainer>
     </transition>
   </div>
 </template>
@@ -73,9 +71,18 @@ import Alert from "../general/Alert.vue";
 import SaveBtn from "../buttons/SaveBtn.vue";
 import CancelBtn from "../buttons/CancelBtn.vue";
 import PopupBackground from "../popup/PopupBackground.vue";
+import PopupContainer from "../popup/PopupContainer.vue";
+import PopupTitle from "../popup/PopupTitle.vue";
 
 export default {
-  components: { Alert, SaveBtn, CancelBtn, PopupBackground },
+  components: {
+    Alert,
+    SaveBtn,
+    CancelBtn,
+    PopupBackground,
+    PopupContainer,
+    PopupTitle,
+  },
   props: {
     userID: {
       typeof: Object,
@@ -211,26 +218,6 @@ export default {
 </script>
 
 <style>
-.form-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 99;
-
-  width: 100%;
-  max-width: 400px;
-  background-color: #fff;
-  border-radius: 16px;
-
-  padding: 25px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
 .edit-form {
   width: 100%;
   max-width: 400px;
