@@ -43,14 +43,12 @@
         </div>
 
         <div class="options">
-          <BackButton
-            @click="this.$router.push({ name: 'user-list' })"
-          ></BackButton>
-          <SubmitFormBtn
+          <BackBtn @click="this.$router.push({ name: 'user-list' })"></BackBtn>
+          <SaveBtn
             type="submit"
             :disabled="btnDisabled"
             :class="{ loading: btnDisabled }"
-          ></SubmitFormBtn>
+          ></SaveBtn>
         </div>
       </form>
     </div>
@@ -61,12 +59,12 @@
 import db from "../services/Firestore.js";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import Alert from "../components/general/Alert.vue";
-import SubmitFormBtn from "../components/general/SubmitFormBtn.vue";
-import BackButton from "../components/register/BackButton.vue";
+import SaveBtn from "../components/buttons/SaveBtn.vue";
+import BackBtn from "../components/buttons/BackBtn.vue";
 import ViewTitle from "../components/general/ViewTitle.vue";
 
 export default {
-  components: { Alert, BackButton, SubmitFormBtn, ViewTitle },
+  components: { Alert, BackBtn, SaveBtn, ViewTitle },
   setup() {
     return {
       name: "Register",

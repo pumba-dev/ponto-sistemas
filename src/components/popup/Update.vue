@@ -1,18 +1,17 @@
 <template>
   <div class="edit-user">
     <transition name="fade" appear>
-      <div
-        class="edit-background"
+      <PopupBackground
         v-if="showUpdate"
         @click="sendHideEvent"
-      ></div>
+      ></PopupBackground>
     </transition>
 
     <transition name="slide" appear>
       <div class="form-container" v-if="showUpdate">
         <h1 class="edit-title">Alterar Dados da Pessoa</h1>
 
-        <div>
+        <div class="just-to-align">
           <Alert v-show="alert.show" :Alert="alert"></Alert>
         </div>
 
@@ -54,11 +53,11 @@
 
           <div class="options">
             <CancelBtn @click="sendHideEvent"></CancelBtn>
-            <SubmitFormBtn
+            <SaveBtn
               type="submit"
               :disabled="btnDisabled"
               :class="{ loading: btnDisabled }"
-            ></SubmitFormBtn>
+            ></SaveBtn>
           </div>
         </form>
       </div>
@@ -71,11 +70,12 @@ import { onBeforeUpdate, ref } from "vue";
 import db from "../../services/Firestore.js";
 import { doc, getDoc, updateDoc } from "@firebase/firestore";
 import Alert from "../general/Alert.vue";
-import SubmitFormBtn from "../general/SubmitFormBtn.vue";
-import CancelBtn from "../general/CancelBtn.vue";
+import SaveBtn from "../buttons/SaveBtn.vue";
+import CancelBtn from "../buttons/CancelBtn.vue";
+import PopupBackground from "../popup/PopupBackground.vue";
 
 export default {
-  components: { Alert, SubmitFormBtn, CancelBtn },
+  components: { Alert, SaveBtn, CancelBtn, PopupBackground },
   props: {
     userID: {
       typeof: Object,
@@ -229,16 +229,6 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-}
-
-.edit-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 98;
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .edit-form {

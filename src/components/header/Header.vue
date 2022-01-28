@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import GitHubLink from "./GitHubLink.vue";
-import Logo from "./Logo.vue";
+import GitHubLink from "../buttons/GitHubBtn.vue";
+import Logo from "./PontoLogo.vue";
 export default {
   components: {
     Logo,

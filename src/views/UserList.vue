@@ -29,9 +29,9 @@ import { reactive, onBeforeMount } from "vue";
 import db from "../services/Firestore.js";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import UserTable from "../components/user-list/UserTable.vue";
-import Update from "../components/user-list/Update.vue";
-import DeleteConfirm from "../components/user-list/DeleteConfirm.vue";
-import NewUserBtn from "../components/user-list/NewUserBtn.vue";
+import Update from "../components/popup/Update.vue";
+import DeleteConfirm from "../components/popup/ConfirmDelete.vue";
+import NewUserBtn from "../components/buttons/AddUserBtn.vue";
 import ViewTitle from "../components/general/ViewTitle.vue";
 
 export default {

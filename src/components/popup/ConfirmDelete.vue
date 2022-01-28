@@ -1,11 +1,10 @@
 <template>
   <div>
     <transition name="fade" appear>
-      <div
-        class="delete-background"
+      <PopupBackground
         v-if="showDeleteConfirm"
         @click="this.$emit('hideDelete')"
-      ></div>
+      ></PopupBackground>
     </transition>
     <transition name="fade" appear>
       <div class="delete-container" v-if="showDeleteConfirm">
@@ -20,11 +19,12 @@
 </template>
 
 <script>
-import CancelBtn from "../general/CancelBtn.vue";
-import DeleteBtn from "./DeleteBtn.vue";
+import PopupBackground from "../popup/PopupBackground.vue";
+import CancelBtn from "../buttons/CancelBtn.vue";
+import DeleteBtn from "../buttons/DeleteBtn.vue";
 
 export default {
-  components: { CancelBtn, DeleteBtn },
+  components: { CancelBtn, DeleteBtn, PopupBackground },
   props: {
     showDeleteConfirm: {
       typeof: Boolean,
