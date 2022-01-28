@@ -6,7 +6,7 @@ import UserList from '../views/UserList.vue'
 const routes = [
     {
         path: '/',
-        redirect: { name: 'register' }
+        redirect: { name: 'user-list' }
     },
     {
         path: '/nova-pessoa',
