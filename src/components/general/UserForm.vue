@@ -8,14 +8,16 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .user-form {
   width: min-content;
   max-width: 400px;
-  padding: 1rem;
+
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   align-items: center;
+
+  padding: 1rem;
+  gap: 1rem;
 }
 </style>

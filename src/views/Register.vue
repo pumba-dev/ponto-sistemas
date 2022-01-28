@@ -1,14 +1,11 @@
 <template>
-  <div class="register-view">
+  <div class="register">
     <ViewTitle title="Cadastro de Novas Pessoas"></ViewTitle>
 
     <div class="register-container">
-      <div>
-        <Alert v-show="alert.show" :Alert="alert"></Alert>
-      </div>
+      <Alert v-show="alert.show" :Alert="alert"></Alert>
 
       <UserForm
-        class="register-form"
         :class="['ui', alert.type, 'form']"
         @submit.prevent="submitUser"
       >
@@ -53,30 +50,28 @@
 </template>
 
 <script>
-import db from "../services/Firestore.js";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import Alert from "../components/general/Alert.vue";
-import SaveBtn from "../components/buttons/SaveBtn.vue";
-import BackBtn from "../components/buttons/BackBtn.vue";
+// Components
 import ViewTitle from "../components/general/ViewTitle.vue";
-import ButtonsContainer from "../components/buttons/ButtonsContainer.vue";
+import Alert from "../components/general/Alert.vue";
 import UserForm from "../components/general/UserForm.vue";
 import FormLabel from "../components/general/FormLabel.vue";
+import ButtonsContainer from "../components/buttons/ButtonsContainer.vue";
+import BackBtn from "../components/buttons/BackBtn.vue";
+import SaveBtn from "../components/buttons/SaveBtn.vue";
+
+// Firestore
+import db from "../services/Firestore.js";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 export default {
   components: {
-    Alert,
-    BackBtn,
-    SaveBtn,
     ViewTitle,
-    ButtonsContainer,
+    Alert,
     UserForm,
     FormLabel,
-  },
-  setup() {
-    return {
-      name: "Register",
-    };
+    ButtonsContainer,
+    BackBtn,
+    SaveBtn,
   },
   data() {
     return {
@@ -106,7 +101,9 @@ export default {
       if (this.userIsValid(user)) {
         if (!(await this.hasUser(user))) {
           this.resetAlert();
+
           this.btnDisabled = true;
+
           this.pushUserOnDatabase(user).then(() => {
             this.$router.push({ name: "user-list" });
           });
@@ -124,7 +121,7 @@ export default {
 
     userIsValid(user) {
       return (
-        user.name.length >= 5 &&
+        user.name.length >= 2 &&
         user.cpf.length == 14 &&
         user.phone.length == 15
       );
@@ -152,11 +149,7 @@ export default {
     },
 
     async pushUserOnDatabase(user) {
-      try {
-        const docRef = await setDoc(doc(db, "users", user.cpf), user);
-      } catch (e) {
-        console.error("Error adding new user: ", e);
-      }
+      const docRef = await setDoc(doc(db, "users", user.cpf), user);
     },
 
     showAlert(type, title, message) {
@@ -168,43 +161,39 @@ export default {
 
     verifyInputErr() {
       const user = this.user;
-      const inputErr = this.inputErr;
-      let inputWitHErr = [];
 
-      if (user.name.length < 5) {
-        inputErr.name = true;
-        inputWitHErr.push("Nome");
+      if (user.name.length < 2) {
+        this.inputErr.name = true;
       } else {
-        inputErr.name = false;
+        this.inputErr.name = false;
       }
 
       if (user.cpf.length != 14) {
-        inputErr.cpf = true;
-        inputWitHErr.push("CPF");
+        this.inputErr.cpf = true;
       } else {
-        inputErr.cpf = false;
+        this.inputErr.cpf = false;
       }
 
       if (user.phone.length != 15) {
-        inputErr.phone = true;
-        inputWitHErr.push("Telefone");
+        this.inputErr.phone = true;
       } else {
-        inputErr.phone = false;
+        this.inputErr.phone = false;
       }
 
-      if (inputWitHErr.length > 0)
+      if (this.inputErr.name || this.inputErr.cpf || this.inputErr.phone) {
         this.showAlert(
           "error",
           "Erro nos Dados!",
           "Preencha os seguintes campos corretamente."
         );
+      }
     },
   },
 };
 </script>
 
 <style scoped>
-.register-view {
+.register {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -216,13 +205,5 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-}
-
-.options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 13.25rem;
 }
 </style>

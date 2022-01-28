@@ -23,6 +23,7 @@
 
 <script>
 import UserOptions from "./UserOptions.vue";
+
 export default {
   components: { UserOptions },
   props: {

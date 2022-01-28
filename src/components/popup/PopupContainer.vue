@@ -8,7 +8,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .popup-container {
   position: fixed;
   top: 50%;

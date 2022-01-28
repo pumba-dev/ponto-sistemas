@@ -8,7 +8,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .buttons-container {
   width: 100%;
 

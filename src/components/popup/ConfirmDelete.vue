@@ -22,18 +22,18 @@
 import PopupBackground from "../popup/PopupBackground.vue";
 import PopupContainer from "../popup/PopupContainer.vue";
 import PopupTitle from "../popup/PopupTitle.vue";
+import ButtonsContainer from "../buttons/ButtonsContainer.vue";
 import CancelBtn from "../buttons/CancelBtn.vue";
 import DeleteBtn from "../buttons/DeleteBtn.vue";
-import ButtonsContainer from "../buttons/ButtonsContainer.vue";
 
 export default {
   components: {
-    CancelBtn,
-    DeleteBtn,
     PopupBackground,
     PopupContainer,
     PopupTitle,
     ButtonsContainer,
+    CancelBtn,
+    DeleteBtn,
   },
   props: {
     showDeleteConfirm: {

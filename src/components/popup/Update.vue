@@ -1,5 +1,5 @@
 <template>
-  <div class="edit-user">
+  <div>
     <transition name="fade" appear>
       <PopupBackground
         v-if="showUpdate"
@@ -8,13 +8,12 @@
     </transition>
 
     <transition name="slide" appear>
-      <PopupContainer class="form-container" v-if="showUpdate">
+      <PopupContainer v-if="showUpdate">
         <PopupTitle text="Alterar Dados da Pessoa"></PopupTitle>
 
         <Alert v-show="alert.show" :Alert="alert"></Alert>
 
         <UserForm
-          class="edit-form"
           :class="['ui', alert.type, 'form']"
           @submit.prevent="submitUpdate"
         >
@@ -61,28 +60,35 @@
 </template>
 
 <script>
-import { onBeforeUpdate, ref } from "vue";
-import db from "../../services/Firestore.js";
-import { doc, getDoc, updateDoc } from "@firebase/firestore";
-import Alert from "../general/Alert.vue";
-import SaveBtn from "../buttons/SaveBtn.vue";
-import CancelBtn from "../buttons/CancelBtn.vue";
+// Components
 import PopupBackground from "../popup/PopupBackground.vue";
 import PopupContainer from "../popup/PopupContainer.vue";
 import PopupTitle from "../popup/PopupTitle.vue";
-import ButtonsContainer from "../buttons/ButtonsContainer.vue";
+import Alert from "../general/Alert.vue";
 import UserForm from "../general/UserForm.vue";
+import FormLabel from "../general/FormLabel.vue";
+import ButtonsContainer from "../buttons/ButtonsContainer.vue";
+import CancelBtn from "../buttons/CancelBtn.vue";
+import SaveBtn from "../buttons/SaveBtn.vue";
+
+// Composition API
+import { onBeforeUpdate, ref } from "vue";
+
+// Firestore
+import db from "../../services/Firestore.js";
+import { doc, getDoc, updateDoc } from "@firebase/firestore";
 
 export default {
   components: {
-    Alert,
-    SaveBtn,
-    CancelBtn,
     PopupBackground,
     PopupContainer,
     PopupTitle,
-    ButtonsContainer,
+    Alert,
     UserForm,
+    FormLabel,
+    ButtonsContainer,
+    CancelBtn,
+    SaveBtn,
   },
   props: {
     userID: {
@@ -141,7 +147,9 @@ export default {
 
       if (this.userIsValid(user)) {
         this.resetAlert();
+
         this.btnDisabled = true;
+
         this.updateUserOnDatabase(user).then(() => {
           this.$emit("UserUpdated");
         });
@@ -152,7 +160,7 @@ export default {
 
     userIsValid(user) {
       return (
-        user.name.length >= 5 &&
+        user.name.length >= 2 &&
         user.cpf.length == 14 &&
         user.phone.length == 15
       );
@@ -190,35 +198,38 @@ export default {
 
     verifyInputErr() {
       const user = this.user;
-      const inputErr = this.inputErr;
-      let inputWitHErr = [];
 
-      if (user.name.length < 5) {
-        inputErr.name = true;
-        inputWitHErr.push("Nome");
+      if (user.name.length < 2) {
+        this.inputErr.name = true;
       } else {
-        inputErr.name = false;
+        this.inputErr.name = false;
+      }
+
+      if (user.cpf.length != 14) {
+        this.inputErr.cpf = true;
+      } else {
+        this.inputErr.cpf = false;
       }
 
       if (user.phone.length != 15) {
-        inputErr.phone = true;
-        inputWitHErr.push("Telefone");
+        this.inputErr.phone = true;
       } else {
-        inputErr.phone = false;
+        this.inputErr.phone = false;
       }
 
-      if (inputWitHErr.length > 0)
+      if (this.inputErr.name || this.inputErr.cpf || this.inputErr.phone) {
         this.showAlert(
           "error",
           "Erro nos Dados!",
           "Preencha os seguintes campos corretamente."
         );
+      }
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;

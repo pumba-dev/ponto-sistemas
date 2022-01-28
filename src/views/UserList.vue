@@ -1,5 +1,5 @@
 <template>
-  <div class="user-list-view">
+  <div class="user-list">
     <ViewTitle title="Lista de Pessoas Cadastradas"></ViewTitle>
 
     <UserTable
@@ -25,25 +25,31 @@
 </template>
 
 <script>
-import { reactive, onBeforeMount } from "vue";
-import db from "../services/Firestore.js";
-import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
+// Components
+import ViewTitle from "../components/general/ViewTitle.vue";
 import UserTable from "../components/user-list/UserTable.vue";
+import NewUserBtn from "../components/buttons/AddUserBtn.vue";
 import Update from "../components/popup/Update.vue";
 import DeleteConfirm from "../components/popup/ConfirmDelete.vue";
-import NewUserBtn from "../components/buttons/AddUserBtn.vue";
-import ViewTitle from "../components/general/ViewTitle.vue";
+
+// Composition API
+import { reactive, onBeforeMount } from "vue";
+
+// Firestore
+import db from "../services/Firestore.js";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 
 export default {
-  components: { UserTable, Update, DeleteConfirm, NewUserBtn, ViewTitle },
+  components: { ViewTitle, UserTable, NewUserBtn, Update, DeleteConfirm },
   setup() {
     async function getUsers() {
       let userList = [];
+
       const querySnapshot = await getDocs(collection(db, "users"));
       querySnapshot.forEach((doc) => {
         userList.push(doc.data());
       });
-      // console.log(userList);
+
       return userList;
     }
 
@@ -55,9 +61,7 @@ export default {
       });
     });
 
-    return {
-      userList,
-    };
+    return { userList };
   },
   data() {
     return {
@@ -72,30 +76,24 @@ export default {
       this.showDeleteConfirm = true;
     },
 
-    async deleteUser() {
-      await deleteDoc(doc(db, "users", this.userID));
-      this.$router.go(0);
-    },
-
     editUser(user) {
       this.userID = user.cpf;
       this.showUpdate = true;
+    },
+
+    async deleteUser() {
+      await deleteDoc(doc(db, "users", this.userID));
+      this.$router.go(0);
     },
   },
 };
 </script>
 
 <style scoped>
-.user-list-view {
+.user-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-}
-
-.user-list-title {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: var(--primary-color);
 }
 </style>

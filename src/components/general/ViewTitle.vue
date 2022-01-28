@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .view-title {
   font-size: 1.7rem;
   font-weight: bold;
