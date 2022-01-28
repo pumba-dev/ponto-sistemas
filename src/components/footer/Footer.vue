@@ -2,7 +2,6 @@
   <section class="footer">
     <PumbaLogo></PumbaLogo>
     <Copyright></Copyright>
-    <MadeWith></MadeWith>
   </section>
 </template>
 
