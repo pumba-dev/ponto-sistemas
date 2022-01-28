@@ -49,14 +49,14 @@
             />
           </div>
 
-          <div class="options">
+          <ButtonsContainer>
             <CancelBtn @click="sendHideEvent"></CancelBtn>
             <SaveBtn
               type="submit"
               :disabled="btnDisabled"
               :class="{ loading: btnDisabled }"
             ></SaveBtn>
-          </div>
+          </ButtonsContainer>
         </form>
       </PopupContainer>
     </transition>
@@ -73,6 +73,7 @@ import CancelBtn from "../buttons/CancelBtn.vue";
 import PopupBackground from "../popup/PopupBackground.vue";
 import PopupContainer from "../popup/PopupContainer.vue";
 import PopupTitle from "../popup/PopupTitle.vue";
+import ButtonsContainer from "../buttons/ButtonsContainer.vue";
 
 export default {
   components: {
@@ -82,6 +83,7 @@ export default {
     PopupBackground,
     PopupContainer,
     PopupTitle,
+    ButtonsContainer,
   },
   props: {
     userID: {
@@ -219,20 +221,13 @@ export default {
 
 <style>
 .edit-form {
-  width: 100%;
+  width: min-content;
   max-width: 400px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
-}
-
-.edit-title {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  text-align: center;
 }
 
 .fade-enter-active,

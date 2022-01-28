@@ -7,12 +7,12 @@
       ></PopupBackground>
     </transition>
     <transition name="fade" appear>
-      <PopupContainer v-if="showDeleteConfirm">
+      <PopupContainer class="popup-container" v-if="showDeleteConfirm">
         <PopupTitle text="Deseja Apagar Esta Pessoa?"></PopupTitle>
-        <div class="delete-options">
+        <ButtonsContainer>
           <CancelBtn @click="this.$emit('hideDelete')"></CancelBtn>
           <DeleteBtn @click="this.$emit('delete')"></DeleteBtn>
-        </div>
+        </ButtonsContainer>
       </PopupContainer>
     </transition>
   </div>
@@ -24,6 +24,7 @@ import PopupContainer from "../popup/PopupContainer.vue";
 import PopupTitle from "../popup/PopupTitle.vue";
 import CancelBtn from "../buttons/CancelBtn.vue";
 import DeleteBtn from "../buttons/DeleteBtn.vue";
+import ButtonsContainer from "../buttons/ButtonsContainer.vue";
 
 export default {
   components: {
@@ -32,6 +33,7 @@ export default {
     PopupBackground,
     PopupContainer,
     PopupTitle,
+    ButtonsContainer,
   },
   props: {
     showDeleteConfirm: {
@@ -43,9 +45,9 @@ export default {
 </script>
 
 <style scoped>
-.delete-options {
-  display: flex;
-  gap: 1.2rem;
+.popup-container {
+  width: max-content;
+  padding: 25px 50px;
 }
 
 .fade-enter-active,

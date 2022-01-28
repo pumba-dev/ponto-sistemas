@@ -42,14 +42,14 @@
           />
         </div>
 
-        <div class="options">
+        <ButtonsContainer>
           <BackBtn @click="this.$router.push({ name: 'user-list' })"></BackBtn>
           <SaveBtn
             type="submit"
             :disabled="btnDisabled"
             :class="{ loading: btnDisabled }"
           ></SaveBtn>
-        </div>
+        </ButtonsContainer>
       </form>
     </div>
   </div>
@@ -62,9 +62,10 @@ import Alert from "../components/general/Alert.vue";
 import SaveBtn from "../components/buttons/SaveBtn.vue";
 import BackBtn from "../components/buttons/BackBtn.vue";
 import ViewTitle from "../components/general/ViewTitle.vue";
+import ButtonsContainer from "../components/buttons/ButtonsContainer.vue";
 
 export default {
-  components: { Alert, BackBtn, SaveBtn, ViewTitle },
+  components: { Alert, BackBtn, SaveBtn, ViewTitle, ButtonsContainer },
   setup() {
     return {
       name: "Register",
