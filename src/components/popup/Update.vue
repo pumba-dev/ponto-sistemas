@@ -18,8 +18,7 @@
           :class="['ui', alert.type, 'form']"
           @submit.prevent="submitUpdate"
         >
-          <div class="field" :class="{ error: inputErr.cpf }">
-            <label>CPF</label>
+          <FormLabel :class="{ error: inputErr.cpf }" text="CPF">
             <input
               placeholder="Insira seu CPF"
               type="text"
@@ -27,27 +26,25 @@
               v-mask="'###.###.###-##'"
               disabled
             />
-          </div>
+          </FormLabel>
 
-          <div class="field" :class="{ error: inputErr.name }">
-            <label>Nome</label>
+          <FormLabel :class="{ error: inputErr.name }" text="Nome">
             <input
               placeholder="Insira seu nome"
               type="text"
               maxlength="20"
               v-model="user.name"
             />
-          </div>
+          </FormLabel>
 
-          <div class="field" :class="{ error: inputErr.phone }">
-            <label>Telefone</label>
+          <FormLabel :class="{ error: inputErr.phone }" text="Telefone">
             <input
               placeholder="Insira seu Número"
               type="text"
               v-model="user.phone"
               v-mask="'(##) #####-####'"
             />
-          </div>
+          </FormLabel>
 
           <ButtonsContainer>
             <CancelBtn @click="sendHideEvent"></CancelBtn>

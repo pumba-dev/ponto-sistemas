@@ -12,35 +12,32 @@
         :class="['ui', alert.type, 'form']"
         @submit.prevent="submitUser"
       >
-        <div class="field" :class="{ error: inputErr.cpf }">
-          <label>CPF</label>
+        <FormLabel :class="{ error: inputErr.cpf }" text="CPF">
           <input
             placeholder="Insira seu CPF"
             type="text"
             v-model="user.cpf"
             v-mask="'###.###.###-##'"
           />
-        </div>
+        </FormLabel>
 
-        <div class="field" :class="{ error: inputErr.name }">
-          <label>Nome</label>
+        <FormLabel :class="{ error: inputErr.name }" text="Nome">
           <input
             placeholder="Insira seu nome"
             type="text"
             maxlength="20"
             v-model="user.name"
           />
-        </div>
+        </FormLabel>
 
-        <div class="field" :class="{ error: inputErr.phone }">
-          <label>Telefone</label>
+        <FormLabel :class="{ error: inputErr.phone }" text="Telefone">
           <input
             placeholder="Insira seu Número"
             type="text"
             v-model="user.phone"
             v-mask="'(##) #####-####'"
           />
-        </div>
+        </FormLabel>
 
         <ButtonsContainer>
           <BackBtn @click="this.$router.push({ name: 'user-list' })"></BackBtn>
@@ -64,6 +61,7 @@ import BackBtn from "../components/buttons/BackBtn.vue";
 import ViewTitle from "../components/general/ViewTitle.vue";
 import ButtonsContainer from "../components/buttons/ButtonsContainer.vue";
 import UserForm from "../components/general/UserForm.vue";
+import FormLabel from "../components/general/FormLabel.vue";
 
 export default {
   components: {
@@ -73,6 +71,7 @@ export default {
     ViewTitle,
     ButtonsContainer,
     UserForm,
+    FormLabel,
   },
   setup() {
     return {
