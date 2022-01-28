@@ -7,7 +7,7 @@
         <Alert v-show="alert.show" :Alert="alert"></Alert>
       </div>
 
-      <form
+      <UserForm
         class="register-form"
         :class="['ui', alert.type, 'form']"
         @submit.prevent="submitUser"
@@ -50,7 +50,7 @@
             :class="{ loading: btnDisabled }"
           ></SaveBtn>
         </ButtonsContainer>
-      </form>
+      </UserForm>
     </div>
   </div>
 </template>
@@ -63,9 +63,17 @@ import SaveBtn from "../components/buttons/SaveBtn.vue";
 import BackBtn from "../components/buttons/BackBtn.vue";
 import ViewTitle from "../components/general/ViewTitle.vue";
 import ButtonsContainer from "../components/buttons/ButtonsContainer.vue";
+import UserForm from "../components/general/UserForm.vue";
 
 export default {
-  components: { Alert, BackBtn, SaveBtn, ViewTitle, ButtonsContainer },
+  components: {
+    Alert,
+    BackBtn,
+    SaveBtn,
+    ViewTitle,
+    ButtonsContainer,
+    UserForm,
+  },
   setup() {
     return {
       name: "Register",
@@ -209,16 +217,6 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-}
-
-.register-form {
-  width: 100%;
-  max-width: 400px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
 }
 
 .options {

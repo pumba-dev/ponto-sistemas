@@ -13,7 +13,7 @@
 
         <Alert v-show="alert.show" :Alert="alert"></Alert>
 
-        <form
+        <UserForm
           class="edit-form"
           :class="['ui', alert.type, 'form']"
           @submit.prevent="submitUpdate"
@@ -57,7 +57,7 @@
               :class="{ loading: btnDisabled }"
             ></SaveBtn>
           </ButtonsContainer>
-        </form>
+        </UserForm>
       </PopupContainer>
     </transition>
   </div>
@@ -74,6 +74,7 @@ import PopupBackground from "../popup/PopupBackground.vue";
 import PopupContainer from "../popup/PopupContainer.vue";
 import PopupTitle from "../popup/PopupTitle.vue";
 import ButtonsContainer from "../buttons/ButtonsContainer.vue";
+import UserForm from "../general/UserForm.vue";
 
 export default {
   components: {
@@ -84,6 +85,7 @@ export default {
     PopupContainer,
     PopupTitle,
     ButtonsContainer,
+    UserForm,
   },
   props: {
     userID: {
@@ -220,16 +222,6 @@ export default {
 </script>
 
 <style>
-.edit-form {
-  width: min-content;
-  max-width: 400px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-}
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
