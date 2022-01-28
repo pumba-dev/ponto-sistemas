@@ -30,7 +30,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] PopUP de Edição de Usuário.
 - [x] Botão de Apagar Usuário.
 - [x] Confirmação para Apagar Usuário.
-- [ ] Rodapé da Página.
+- [x] Rodapé da Página.
 - [ ] Adicionar Scroll na Lista de Usuários.
 - [ ] Responsividade.
 
