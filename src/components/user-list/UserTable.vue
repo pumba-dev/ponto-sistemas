@@ -43,7 +43,27 @@ export default {
 </script>
 
 <style scoped>
-.user-table {
-  width: 70rem;
+@media (min-width: 767px) {
+  .user-table {
+    width: 40rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .user-table {
+    width: 50rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .user-table {
+    width: 60rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .user-table {
+    width: 70rem;
+  }
 }
 </style>
